@@ -22,11 +22,11 @@ const config = {
 };
 
 // API Endpoints
-app.get('/api/data', (req, res) => {
+app.get('/api/artists', (req, res) => {
   mssql.connect(config, (err) => {
     if (err) throw err;
 
-    const query = 'SELECT * FROM <table_name>';
+    const query = 'SELECT * FROM Artists';
 
     new mssql.Request().query(query, (err, result) => {
       if (err) throw err;
