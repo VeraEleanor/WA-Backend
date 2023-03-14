@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 // MSSQL Configuration
 const config = {
   user: 'dbo',
-  password: '<db_password>',
+  password: '',
   server: 'DESKTOP-5T1UND2\SQLEXPRESS',
   database: 'CollectionDB',
   options: {
@@ -22,11 +22,11 @@ const config = {
 };
 
 // API Endpoints
-app.get('/api/artists', (req, res) => {
+app.get('/api/data', (req, res) => {
   mssql.connect(config, (err) => {
     if (err) throw err;
 
-    const query = 'SELECT * FROM Artists';
+    const query = 'SELECT * FROM ';
 
     new mssql.Request().query(query, (err, result) => {
       if (err) throw err;
