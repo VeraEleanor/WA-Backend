@@ -3,6 +3,14 @@ const app = express()
 app.use(express.urlencoded({extended: false}))
 app.use(getAccountInfo)
 app.use(express.json())
+const collectionRouter = require('./routes/collection');
+
+app.get('/', (req, res) => {
+  res.json({message: 'alive'});
+});
+
+app.use('/collection', collectionRouter);
+
 
 app.set('view engine', 'ejs');
 
